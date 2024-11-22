@@ -1,0 +1,35 @@
+public class SmartThermostat : ISmartDevice
+{
+    public bool IsOn { get; private set; }
+    public int Temperature { get; private set; }
+
+    public SmartThermostat(int initialTemperature)
+    {
+        IsOn = false;
+        Temperature = initialTemperature;
+    }
+
+    public void TurnOn()
+    {
+        IsOn = true;
+        Console.WriteLine("Термостат включен.");
+    }
+
+    public void TurnOff()
+    {
+        IsOn = false;
+        Console.WriteLine("Термостат выключен.");
+    }
+
+    public void ShowStatus()
+    {
+        string status = IsOn ? "включен" : "выключен";
+        Console.WriteLine($"Термостат {status}. Текущая температура: {Temperature}°C.");
+    }
+
+    public void SetTemperature(int temp)
+    {
+        Temperature = temp;
+        Console.WriteLine($"Температура установлена на {temp}°C.");
+    }
+}
