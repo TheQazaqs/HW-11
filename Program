@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        SmartLamp lamp = new SmartLamp("Белый");
+        SmartThermostat thermostat = new SmartThermostat(22);
+
+        List<ISmartDevice> devices = new List<ISmartDevice> { lamp, thermostat };
+
+        foreach (ISmartDevice device in devices)
+        {
+            device.TurnOn();
+            device.ShowStatus();
+            device.TurnOff();
+            device.ShowStatus();
+        }
+
+        lamp.ChangeColor("Красный");
+        lamp.ShowStatus();
+        thermostat.SetTemperature(25);
+        thermostat.ShowStatus();
+    }
+}
